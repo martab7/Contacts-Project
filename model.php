@@ -16,10 +16,11 @@ function searchContact($contacts, $name)
     $matches = [];
     if(strlen($name)>0){
       foreach ($contacts as $contact) {
-          if ($contact['name'] == $name) {
+          if (stripos($contact['name'],$name)!==false) {
               $matches[] = $contact;
           }
       }
+      return $matches;
     }else{
       return $contacts;
     }
@@ -30,11 +31,10 @@ function searchContact($contacts, $name)
 function deleteContacts(&$contacts, $name) {
   if($name) {
     $contactToBeDeleted = searchContact($contacts, $name);
-    $contactString = implode('|', $contactToBeDeleted);
+    $contactString = implode('|', $contactToBeDeleted[0]);
     $contents = file_get_contents('contacts.txt');
     $contents = str_replace($contactString, '', $contents);
     file_put_contents('contacts.txt', trim($contents));
-    header('Location: index.php');
   } else {
     print '<script type="text/javascript">';
     print 'alert("Unable to delete contact.")';
@@ -42,11 +42,3 @@ function deleteContacts(&$contacts, $name) {
   }
 }
 ?>
-<!--
-function searchContact(&$allContacts, $nameSearch) {
-    foreach ($allContacts as $contact) {
-        if (strpos($contact['name'], $nameSearch) !== false) {
-          return $contact;
-        }
-    }
-} -->
