@@ -5,7 +5,6 @@
   require('controller.php');
   require('model.php');
   require('view.php');
-
   // // Input / Output
   // function prompt($message)
   // {
@@ -24,39 +23,29 @@
   // }
 
 
-  // Front controller
-
-  //runs code for each action
-  // function contactsManager()
-  //   $contacts = loadContacts();
-  //   $option = prompt($menu);
-  //   switch ($option) {
-  //       case 1:
-  //           viewContacts($contacts);
-  //           break;
-  //       case 2:
-  //           newContact($contacts);
-  //           break;
-  //       case 3:
-  //           findContact($contacts);
-  //           break;
-  //       case 4:
-  //           deleteContact($contacts);
-  //           break;
-  //       default:
-  //           alert('See you!');
-  //   }
-  //   saveContacts($contacts);
-  // }
-  //
-  // contactsManager();
-
   $contacts = loadContacts();
-  if(!isset($_GET['name'])){
-    viewContacts($contacts);
-  } elseif (isset($_GET['name'])) {
+  var_dump($contacts);
+
+  if(inputHas('name')) {
+    print '<script type="text/javascript">';
+    $confirm = print 'confirm("Do you want to delete?")';
+    print '</script>';
     $name = $_GET['name'];
-    deleteContacts($contacts, $name);
+    if($confirm == 1) {
+      deletecontacts($contacts, $name);
+    } else {
+      viewContacts($contacts);
+    }
+  } else {
+    viewContacts($contacts);
   }
+
+
+  // if(!isset($_GET['name'])){
+  //   viewContacts($contacts);
+  // } elseif (isset($_GET['name'])) {
+  //   $name = $_GET['name'];
+  //   deleteContacts($contacts, $name);
+  // }
 
 ?>
