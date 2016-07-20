@@ -1,5 +1,6 @@
 <?php
 require('controller-index.php');
+loadContacts();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ require('controller-index.php');
                                 placeholder="John Doe"
                                 name="search-name">
                         </div>
-                        <button type="submit" class="btn btn-default">
+                        <button autofocus type="submit" class="btn btn-default">
                             <span class="glyphicon glyphicon-search" aria-hidden="true">
                             </span>
                             Search
@@ -44,6 +45,7 @@ require('controller-index.php');
             </section>
             <article class="row contacts">
                 <section class="col-md-6">
+                  <form method="POST">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
@@ -57,6 +59,7 @@ require('controller-index.php');
                             <?= viewContacts($contactstoview) ?>
                         </tbody>
                     </table>
+                  </form>
                 </section>
                 <section class="col-md-6">
                     <form method="post" class="form-horizontal">
