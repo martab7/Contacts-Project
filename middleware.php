@@ -1,4 +1,3 @@
-// Middleware
 <?php
 
 //gets file list of contacts(DB)

@@ -160,18 +160,11 @@ function viewContacts($contacts)
     alert($contactsTable);
 }
 
-function newContact(&$contacts)
+function newContact(&$contacts,$name,$number)
 {
-    $name = inputName('Enter a new contact name:');
-    $number = inputNumber('Enter phone number');
     $matches = searchContact($contacts, $name);
     if (count($matches) > 0) {
-        $message = "There's already a contact named $name. Do you want to overwrite it? (y/n)";
-        if (confirm($message)) {
-            deleteContacts($contacts, $name);
-        } else {
-            newContact($contacts);
-        }
+        break;
     }
     addContact($contacts, $name, $number);
     alert('Contact saved successfully!');
@@ -224,5 +217,4 @@ MENU;
         saveContacts($contacts);
     } while ($option != 5);
 }
-
 contactsManager();

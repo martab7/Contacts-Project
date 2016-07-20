@@ -14,10 +14,14 @@ function addContact(&$contacts, $name, $number)
 function searchContact($contacts, $name)
 {
     $matches = [];
-    foreach ($contacts as $contact) {
-        if ($contact['name'] == $name) {
-            $matches[] = $contact;
-        }
+    if(strlen($name)>0){
+      foreach ($contacts as $contact) {
+          if ($contact['name'] == $name) {
+              $matches[] = $contact;
+          }
+      }
+    }else{
+      return $contacts;
     }
     return $matches[0];
 }

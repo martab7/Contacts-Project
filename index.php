@@ -25,13 +25,14 @@ require('controller-index.php');
                     </header>
                 </div>
                 <div class="col-md-4" style="padding-top: 3.5em">
-                    <form class="form-inline" method="get">
+                    <form class="form-inline" method="get" name="search-name">
                         <div class="form-group">
-                            <input
+                        <input
                                 type="text"
                                 class="form-control"
                                 id="search-name"
-                                placeholder="John Doe">
+                                placeholder="John Doe"
+                                name="search-name">
                         </div>
                         <button type="submit" class="btn btn-default">
                             <span class="glyphicon glyphicon-search" aria-hidden="true">
@@ -53,7 +54,7 @@ require('controller-index.php');
                         </thead>
                         <tbody>
                             <!-- Your contacts should be here -->
-                            <?= viewContacts($contacts) ?>
+                            <?= viewContacts($contactstoview) ?>
                         </tbody>
                     </table>
                 </section>
@@ -83,15 +84,18 @@ require('controller-index.php');
                                     id="number">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <form method="POST">
+                        <div class="form-group" name="save">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" name="save">
+
                                     <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true">
                                     </span>
                                     Save
                                 </button>
                             </div>
                         </div>
+                        </form>
                     </form>
                 </section>
             </article>

@@ -39,6 +39,20 @@
   } else {
     viewContacts($contacts);
   }
+  if(isset($_POST['name'])!==false){
+    var_dump($_POST);
+    $matches = searchContact($contacts,$_POST['name']);
+    if(empty($matches)){
+        newContact($contacts,$_POST['name'],$_POST['number']);
+        saveContacts($contacts);    
+    }
+  }
+  if(isset($_GET['search-name'])){
+    $match = searchContact($contacts, $_GET['search-name']);
+    $contactstoview=$match;
+  }else{
+    $contactstoview=$contacts;
+  }
 
 
   // if(!isset($_GET['name'])){
