@@ -16,6 +16,13 @@ loadContacts();
             crossorigin="anonymous"
         >
         <title>Contacts manager</title>
+        <style>
+          body{
+            background-image:url("img/skeleton.gif");
+            background-repeat:repeat;
+            background-color: papayawhip;
+          }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -23,6 +30,7 @@ loadContacts();
                 <div class="col-md-8">
                     <header class="page-header">
                         <h1>Contacts Manager</h1>
+                        <a href="index.php">Home</a>
                     </header>
                 </div>
                 <div class="col-md-4" style="padding-top: 3.5em">
