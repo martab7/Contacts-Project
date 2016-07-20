@@ -39,7 +39,7 @@ function inputNumber($message)
 }
 
 function inputHas($key) {
-  if(isset($_GET["$key"])) {
+  if(isset($_POST["$key"])) {
     return true;
   } else {
     return false;

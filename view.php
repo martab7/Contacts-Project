@@ -22,11 +22,11 @@ function formatContacts($contacts)
           . "<td>" . $contact['name'] . "</td>"
           . "<td>" . formatNumber($contact['number']) . "</td>"
           . "<td>"
-              . "<a class=\"btn btn-danger\" href=\"?name=" . $contact['name'] . "\">"
+              . "<button class=\"btn btn-danger\" type=\"submit\" name=\"delete\" value=\"" . $contact['name'] . "\">"
                   . "<span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\">"
                   . "</span>"
                   . "Delete"
-              . "</a>"
+              . "</button>"
           . "</td>"
       . "</tr>";
     }
