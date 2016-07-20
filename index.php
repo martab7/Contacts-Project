@@ -88,6 +88,7 @@ require('controller-index.php');
                         <div class="form-group" name="save">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-primary" name="save">
+
                                     <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true">
                                     </span>
                                     Save

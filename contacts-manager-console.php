@@ -217,14 +217,4 @@ MENU;
         saveContacts($contacts);
     } while ($option != 5);
 }
-loadcontacts();
-var_dump('hello');
-if(isset($_POST['name'])!==false){
-    var_dump($_POST);
-    $matches = searchContact($contacts,$_POST['name']);
-    if(empty($matches)){
-        newContact($contacts,$_POST['name'],$_POST['number']);
-        saveContacts($contacts);    
-    }
-}
-var_dump($_POST);
+contactsManager();
